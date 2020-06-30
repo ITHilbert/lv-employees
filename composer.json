@@ -1,0 +1,47 @@
+{
+    "name": "ithilbert/lv-employees",
+    "type": "module",
+    "license": "MIT",
+    "description": "Mitarbeiterverwaltung",
+    "keywords": [
+        "it-hilbert",
+        "laravel",
+        "permission",
+        "permissions",
+        "roles",
+        "acl",
+        "rbac",
+        "security"
+    ],
+    "authors": [{
+        "name": "Jörg Hilbert",
+        "homepage": "https://www.it-hilbert.com",
+        "role": "Developer"
+    }],
+    "homepage": "https://github.com/spatie/laravel-permission",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ITHilbert\\Employees\\": "src/",
+            "ITHilbert\\Employees\\Database\\Seeds\\": "Database/Seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ITHilbert\\Employees\\": "src/",
+            "ITHilbert\\Employees\\Database\\Seeds\\": "Database/Seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ITHilbert\\Employees\\EmployeesServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    }
+
+}
