@@ -53,19 +53,19 @@ class ProfilController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'vorname' => 'required',
-            'nachname' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
         ]);
 
         $user = Auth()->user();
-        $employe = Employee::where('user_id', $user->id)->first();
+        $employee = Employee::where('user_id', $user->id)->first();
 
-        $employe->update($request->all());
+        $employee->update($request->all());
         $datum = new MyDateTime($request->birthday);
-        $employe->birthday = $datum->getDateISO();
-        $employe->edit_user_id = $user->id;
-        $employe->update();
+        $employee->birthday = $datum->getDateISO();
+        $employee->edit_user_id = $user->id;
+        $employee->update();
 
         return redirect()->route('profil.show')
                         ->with('success','Profil erfolgreich angepasst');

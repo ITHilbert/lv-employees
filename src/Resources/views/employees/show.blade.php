@@ -123,7 +123,7 @@
 <div class="form-group row">
     <label for="birthday" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.birthday')</label>
     <div class="col-md-6 mt-2">
-        <show-txt>{{ $employee->birthday }}</show-txt>
+        <show-date value="{{ $employee->birthday }}" />
     </div>
 </div>
 

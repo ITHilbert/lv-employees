@@ -18,6 +18,9 @@ return [
     'header_create'         => 'Neuer Mitarbeiter',
     'header_edit'           => 'Mitarbeiter anpassen',
 
+    'profil_show'           => 'Profil',
+    'profil_edit'           => 'Profil anpassen',
+
     'customer'              => 'Kunde',
     'customers'             => 'Kunden',
     'project'               => 'Projekt',
@@ -39,7 +42,7 @@ return [
     'mobile'                => 'Mobile',
     'fax'                   => 'Fax',
     'email'                 => 'E-Mail',
-    'private_email'         => 'Private E-Mail',
+    'email_privat'         => 'Private E-Mail',
     'skype'                 => 'Skype',
     'hourly_rate'           => 'Stundensatz',
     'mileage_allowance'     => 'Kilometerpauschale',

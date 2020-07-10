@@ -1,149 +1,136 @@
-@extends('master')
+@extends('layouts.app')
+
+@section('title', Lang::get('employees::employee.profil_show'))
 
 @section('content')
+<card title="@lang('employees::employee.profil_show')">
 
-{{ Card::open('Profil') }}
-@include('laravelKit.message')
+@include('include.message')
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Anrede</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.anrede')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->getAnrede() }}
+        <show-txt>{{ $employee->getAnrede() }}</show-txt>
     </div>
 </div>
 
 
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Titel</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.title')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->titel }}
+        <show-txt>{{ $employee->title }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Vorname</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.first_name')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->vorname }}
+        <show-txt>{{ $employee->first_name }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Nachname</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.last_name')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->nachname }}
+        <show-txt>{{ $employee->last_name }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Sigantur Recht</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.signature_rule')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->getSignatureRule() }}
+        <show-txt>{{ $employee->getSignatureRule() }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Strasse</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.street')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->strasse }}
+        <show-txt>{{ $employee->street }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">PLZ</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.postcode')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->plz }}
+        <show-txt>{{ $employee->postcode }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Ort</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.city')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->ort }}
+        <show-txt>{{ $employee->city }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Telefon</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.phone')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->telefon }}
+        <show-txt>{{ $employee->phone }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Telefon 2</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.phone2')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->telefon2 }}
+        <show-txt>{{ $employee->phone2 }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Mobil</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.mobile')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->mobil }}
+        <show-txt>{{ $employee->mobile }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">E-Mail</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.email')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->email }}
+        <show-txt>{{ $employee->email }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">E-Mail Privat</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.email_privat')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->email_privat }}
+        <show-txt>{{ $employee->email_privat }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Projekte</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.projects')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->projects }}
+        <show-txt>{{ $employee->projects }}</show-txt>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Stundensatz</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.birthday')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->stundensatz }}
+        <show-datum value="{{ $employee->birthday }}" ></show-datum>
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Geburtstag</label>
+    <label for="name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.comment')</label>
     <div class="col-md-6 mt-2">
-        {{ $employe->birthday }}
+        <show-txt>{{ $employee->comment }}</show-txt>
     </div>
 </div>
-
-<div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Kommentar</label>
-    <div class="col-md-6 mt-2">
-        {{ $employe->comment }}
-    </div>
-</div>
-
-
-@role('admin|super admin') 
-<div class="form-group row">
-    <label for="name" class="col-md-4 col-form-label text-md-right">Admin Kommentar</label>
-    <div class="col-md-6 mt-2">
-        {{ $employe->admincomment }}
-    </div>
-</div>
-@endrole
-
 
 <div class="form-group row mb-2">
-    <div class="col-md-4 text-right">{{ HButton::back(route('root')) }}</div>
-    <div class="col-md-6 text-left">{{ HButton::edit(route('profil.edit')) }}</div>
+    <div class="col-md-4 text-right">
+        <button-back route="{{ route('root') }}">@Lang('master.btn-back')</button-back>
+    </div>
+    <div class="col-md-6 text-left">
+        <button-edit route="{{ route('profil.edit') }}" >@lang('master.btn-edit')</button-save>
+    </div>
 </div>
 
-
-{{ Card::Close() }}
+</card>
 
 @endsection
 

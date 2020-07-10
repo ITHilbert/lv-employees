@@ -23,7 +23,7 @@ class EmployeesTableSeeder extends Seeder
                 'id' => 1,
                 'user_id' => 1,
                 'anrede_id' => 1,
-                'titel' => NULL,
+                'title' => NULL,
                 'first_name' => 'admin',
                 'last_name' => NULL,
                 'signature_rule_id' => 4,

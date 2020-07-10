@@ -1,20 +1,19 @@
-@extends('master')
+@extends('layouts.app')
+
+@section('title', Lang::get('employees::employee.profil_edit'))
+
 
 @section('content')
+<card title="@lang('employees::employee.header_edit')">
+@include('include.message')
 
-{{ Card::open('Profil anpassen') }}
-
-
-@include('laravelKit.message')
-
-
-{{ HForm::open(route('profil.update')) }}
+<hform action="{{ route('profil.update') }}">
 
 
 <div class="form-group row mb-2">
-    <label for="anrede_id" class="col-md-4 col-form-label text-md-right">Anrede</label>
+    <label for="anrede_id" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.anrede')</label>
     <div class="col-md-6">
-       {{ HForm::comboBox('anrede_id', $employe->getDatenAnreden(), old('anrede_id', $employe->anrede_id)  ) }}
+        <combobox name="anrede_id" :options="{{ $employee->getAnredeCB() }}" value="{{ old('anrede_id', $employee->anrede_ID) }}"></combobox>
     </div>
 </div>
 
@@ -22,144 +21,142 @@
 
 
 <div class="form-group row mb-2">
-    <label for="titel" class="col-md-4 col-form-label text-md-right">Titel</label>
+    <label for="title" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.title')</label>
     <div class="col-md-6">
-        {{ HForm::text('titel', old('titel', $employe->titel)  ) }}
+        <input-text name="title" value="{{ old('title', $employee->title) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="vorname" class="col-md-4 col-form-label text-md-right">Vorname</label>
+    <label for="first_name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.first_name')</label>
     <div class="col-md-6">
-        {{ HForm::text('vorname', old('vorname', $employe->vorname)  ) }}
+        <input-text name="first_name" value="{{ old('vorname', $employee->first_name) }}" />
     </div>
 </div>
 
 
 <div class="form-group row mb-2">
-    <label for="nachname" class="col-md-4 col-form-label text-md-right">Nachname</label>
+    <label for="last_name" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.last_name')</label>
     <div class="col-md-6">
-        {{ HForm::text('nachname', old('nachname', $employe->nachname)  ) }}
+        <input-text name="last_name" value="{{ old('last_name', $employee->last_name) }}" />
     </div>
 </div>
 
-@role('admin|super admin') 
+@role('admin|super')
 <div class="form-group row mb-2">
-    <label for="signature_rule_id" class="col-md-4 col-form-label text-md-right">Signatur Recht</label>
+    <label for="signature_rule_id" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.signature_rule')</label>
     <div class="col-md-6">
-       {{ HForm::comboBox('signature_rule_id', $employe->getDatenSigantureRules(), old('signature_rule_id', $employe->signature_rule_id)  ) }}
+        <combobox name="signature_rule_id" :options="{{ $employee->getSignatureRuleCB() }}" value="{{ old('signature_rule_id', $employee->signature_rule_id) }}"></combobox>
     </div>
 </div>
 @endrole
 
 <div class="form-group row mb-2">
-    <label for="strasse" class="col-md-4 col-form-label text-md-right">Strasse</label>
+    <label for="street" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.street')</label>
     <div class="col-md-6">
-        {{ HForm::text('strasse', old('strasse', $employe->strasse)  ) }}
+        <input-text name="street" value="{{ old('street', $employee->street) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="plz" class="col-md-4 col-form-label text-md-right">PLZ</label>
+    <label for="postcode" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.postcode')</label>
     <div class="col-md-6">
-        {{ HForm::text('plz', old('plz', $employe->plz)  ) }}
+        <input-text name="postcode" value="{{ old('postcode', $employee->postcode) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="ort" class="col-md-4 col-form-label text-md-right">Ort</label>
+    <label for="city" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.city')</label>
     <div class="col-md-6">
-        {{ HForm::text('ort', old('ort', $employe->ort)  ) }}
+        <input-text name="city" value="{{ old('city', $employee->city) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="telefon" class="col-md-4 col-form-label text-md-right">Telefon</label>
+    <label for="phone" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.phone')</label>
     <div class="col-md-6">
-        {{ HForm::text('telefon', old('telefon', $employe->telefon)  ) }}
+        <input-text name="phone" value="{{ old('phone', $employee->phone) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="telefon2" class="col-md-4 col-form-label text-md-right">Telefon 2</label>
+    <label for="phone2" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.phone2')</label>
     <div class="col-md-6">
-        {{ HForm::text('telefon2', old('telefon2', $employe->telefon2)  ) }}
+        <input-text name="phone2" value="{{ old('phone', $employee->phone2) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="mobil" class="col-md-4 col-form-label text-md-right">Mobil</label>
+    <label for="mobile" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.mobile')</label>
     <div class="col-md-6">
-        {{ HForm::text('mobil', old('mobil', $employe->mobil)  ) }}
+        <input-text name="mobile" value="{{ old('mobile', $employee->mobile) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
+    <label for="email" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.email')</label>
     <div class="col-md-6">
-        {{ HForm::text('email', old('email', $employe->email)  ) }}
+        <input-text name="email" value="{{ old('email', $employee->email) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="email_privat" class="col-md-4 col-form-label text-md-right">E-Mail Privat</label>
+    <label for="email_privat" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.email_privat')</label>
     <div class="col-md-6">
-        {{ HForm::text('email_privat', old('email_privat', $employe->email_privat)  ) }}
+        <input-text name="private_email" value="{{ old('private_email', $employee->private_email) }}" />
     </div>
 </div>
 
 <div class="form-group row mb-2">
-    <label for="projects" class="col-md-4 col-form-label text-md-right">Projekte</label>
+    <label for="projects" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.projects')</label>
     <div class="col-md-6">
-        {{ HForm::text('projects', old('projects', $employe->projects)  ) }}
+        <input-text name="projects" value="{{ old('projects', $employee->projects) }}" />
     </div>
 </div>
 
-@role('admin|super admin') 
+@role('admin|super')
 <div class="form-group row mb-2">
-    <label for="stundensatz" class="col-md-4 col-form-label text-md-right">Stundensatz</label>
+    <label for="hourly_rate" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.hourly_rate')</label>
     <div class="col-md-6">
-        {{ HForm::text('stundensatz', old('stundensatz', $employe->stundensatz)  ) }}
+        <input-euro name="hourly_rate" value="{{ old('hourly_rate', $employee->hourly_rate) }}" />
+    </div>
+</div>
+@endrole
+
+<div class="form-group row mb-2">
+    <label for="birthday" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.birthday')</label>
+    <div class="col-md-6">
+        <input-date name="birthday" value="{{ old('birthday', $employee->birthday) }}" />
+    </div>
+</div>
+
+<div class="form-group row mb-2">
+    <label for="comment" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.comment')</label>
+    <div class="col-md-6">
+        <text-area name="comment">{{ old('comment', $employee->comment) }}</textarea>
+    </div>
+</div>
+
+@role('admin|super')
+<div class="form-group row mb-2">
+    <label for="admin_comment" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.admin_comment')</label>
+    <div class="col-md-6">
+        <text-area name="admin_comment">{{ old('admin_comment', $employee->admin_comment) }}</textarea>
     </div>
 </div>
 @endrole
 
 <div class="form-group row mb-2">
-    <label for="birthday" class="col-md-4 col-form-label text-md-right">Geburtstag</label>
-    <div class="col-md-6">
-        {{ HForm::date('birthday', old('birthday', $employe->birthday)  ) }}
+    <div class="col-md-4 text-right">
+        <button-back route="{{ route('profil.show') }}">@Lang('master.btn-back')</button-back>
+    </div>
+    <div class="col-md-6 text-left">
+        <button-save>@lang('master.btn-save')</button-save>
     </div>
 </div>
 
-<div class="form-group row mb-2">
-    <label for="comment" class="col-md-4 col-form-label text-md-right">Kommentar</label>
-    <div class="col-md-6">
-        {{ HForm::textArea('comment', old('comment', $employe->comment)  ) }}
-    </div>
-</div>
-
-@role('admin|super admin') 
-<div class="form-group row mb-2">
-    <label for="vorname" class="col-md-4 col-form-label text-md-right">Admin Kommentar</label>
-    <div class="col-md-6">
-        {{ HForm::textArea('admincomment', old('admincomment', $employe->admincomment)  ) }}
-    </div>
-</div>
-@endrole
 
 
-<div class="form-group row mb-2">
-    <div class="col-md-4 text-right">{{ HButton::back(route('profil.show')) }}</div>
-    <div class="col-md-6 text-left">{{ HButton::submit() }}</div>
-</div>
-
-
-{{ HForm::close() }}
-{{ Card::close() }}
-@endsection
-
-
-
-
-@section('bodyend')
+</hform>
+</card>
 @endsection

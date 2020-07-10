@@ -52,7 +52,7 @@ class Employee extends Model {
     public function getSignatureRule(){
         if(!isset($this->signature_rule_id)) return '';
 
-        $sr = SiganutureRule::findorfail();
+        $sr = SiganutureRule::findorfail($this->signature_rule_id);
 
         return $sr->signature_rule;
     }

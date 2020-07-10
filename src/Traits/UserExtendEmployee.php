@@ -4,13 +4,9 @@ namespace ITHilbert\Employees\Traits;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use ITHilbert\Employees\Entities\Employee;
-use ITHilbert\LaravelKit\Entities\Log;
 
 trait UserExtendEmployee
 {
-
-
-
     protected static function boot()
     {
         parent::boot();

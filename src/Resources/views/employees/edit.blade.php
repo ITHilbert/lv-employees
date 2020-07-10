@@ -97,7 +97,7 @@
 </div>
 
 <div class="form-group row mb-2">
-    <label for="private_email" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.private_email')</label>
+    <label for="private_email" class="col-md-4 col-form-label text-md-right">@lang('employees::employee.email_privat')</label>
     <div class="col-md-6">
         <input-text name="private_email" value="{{ old('private_email', $employee->private_email) }}" />
     </div>
